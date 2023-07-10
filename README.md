@@ -11,7 +11,7 @@ GymPass style app.
 - [] Deve ser ser possivel o usuario obter seu historico de check-ins;
 - [] Deve ser possivel o usuario buscar academias proximas;
 - [] Deve ser possivel o usuario buscar academias pelo nome;
-- [] Deve ser possivel o usuario realizar check-in em uma academia;
+- [x] Deve ser possivel o usuario realizar check-in em uma academia;
 - [] Deve ser possivel o validar o check-in de um usuario;
 
 ## Rns (Regras de Negocio)
