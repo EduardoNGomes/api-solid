@@ -5,11 +5,11 @@ import { validate } from './validate'
 import { history } from './history'
 import { metrics } from './metrics'
 
-export async function gymsRoutes(app: FastifyInstance) {
+export async function checkInRoutes(app: FastifyInstance) {
   app.addHook('onRequest', verifyJwt)
 
-  app.post('gyms/:gymsId/check-ins', create)
-  app.patch('check-ins/:checkInId/validate', validate)
-  app.get('check-ins/history', history)
-  app.get('check-ins/metrics', metrics)
+  app.post('/gyms/:gymsId/check-ins', create)
+  app.patch('/check-ins/:checkInId/validate', validate)
+  app.get('/check-ins/history', history)
+  app.get('/check-ins/metrics', metrics)
 }

@@ -4,7 +4,7 @@ import request from 'supertest'
 import { app } from '@/app'
 import { createAndAuthenticate } from '@/utils/test/create-and-authenticate-user'
 
-describe('Profile (e2e)', () => {
+describe('Create Gym (e2e)', () => {
   beforeAll(async () => {
     await app.ready()
   })
@@ -13,13 +13,20 @@ describe('Profile (e2e)', () => {
     await app.close()
   })
 
-  it('should be able to get user Profile', async () => {
+  it('should be able to create Gym', async () => {
     const { token } = await createAndAuthenticate(app)
 
-    const profileResponse = await request(app.server)
-      .get('/me')
+    const response = await request(app.server)
+      .post('/gyms')
       .set('Authorization', `Bearer ${token}`)
+      .send({
+        title: 'Javascript Gym',
+        description: 'Some description',
+        phone: '119999999999',
+        latitude: -22.9567627,
+        longitude: -43.3391126,
+      })
 
-    expect(profileResponse.statusCode).toEqual(200)
+    expect(response.statusCode).toEqual(201)
   })
 })
