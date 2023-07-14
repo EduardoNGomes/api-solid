@@ -13,8 +13,8 @@ export async function nearby(request: FastifyRequest, reply: FastifyReply) {
   })
 
   const { latitude, longitude } = nearbyGymsQuerySchema.parse(request.query)
-  const createGymUseCase = makeFetchNearbyGymsUseCase()
-  const { gym } = await createGymUseCase.execute({
+  const fetchNearbyUseCase = makeFetchNearbyGymsUseCase()
+  const { gym } = await fetchNearbyUseCase.execute({
     userLatitude: latitude,
     userLongitude: longitude,
   })
